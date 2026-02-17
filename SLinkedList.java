@@ -1,9 +1,9 @@
 package SLIST;
 
-import java.util.Iterator;
+
 import java.util.NoSuchElementException;
 
-public class SLinkedList<T> implements Iterable<T>{
+public class SLinkedList<T> {
     class Node<T>{
         T data;
         Node<T> next;
@@ -23,27 +23,8 @@ public class SLinkedList<T> implements Iterable<T>{
 
 }
     
-    @Override
-    public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            private Node<T> current = head;
-
-            @Override
-            public boolean hasNext() {
-                return current != null;
-            }
-
-            @Override
-            public T next() {
-                if (current == null) {
-                    throw new NoSuchElementException();
-                }
-                T data = current.data;
-                current = current.next;
-                return data;
-            }
-        };
-    }
+   
+               
     public void addFirst(T data){
         Node<T> newNode = new Node<>(data);
         newNode.next = head;
@@ -134,6 +115,9 @@ public class SLinkedList<T> implements Iterable<T>{
             throw new NoSuchElementException("List is empty");
         }
         return tail.data;
+    }
+    public void remove (T e) {
+        //removes first occurrence of e
     }
     public void reverse(){
         
